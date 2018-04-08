@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
+import { HomeService } from './home/home.service';
+import { LoginService } from './login/login.service';
 
 const appRoutes = [
   {path: 'login', component: LoginComponent},
@@ -24,7 +26,7 @@ const appRoutes = [
     RouterModule.forRoot(appRoutes),
     BrowserModule
   ],
-  providers: [],
+  providers: [HomeService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
