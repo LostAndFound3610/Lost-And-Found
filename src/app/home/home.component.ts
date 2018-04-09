@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { IItem } from './item';
+import { Component, OnInit, Input } from '@angular/core';
+import { Item } from './item';
 import { HomeService } from './home.service';
+import {Items} from './mock-items';
 
 @Component({
   selector: 'app-home',
@@ -8,22 +9,40 @@ import { HomeService } from './home.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  
+  /*
+  items = Items;
+  selectedItem: Item;
 
-  items: IItem[] = []
-  selectedItem: IItem;
-
-  constructor(private _homeService: HomeService) { }
-
-  ngOnInit() {
-    this._homeService.getItems().subscribe(items => {
-      this.items = items;
-    },
-      error => console.log(error)
-    );
-  }
-
-  onSelect(item: IItem): void{
+  onSelect(item: Item): void {
     this.selectedItem = item;
   }
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+  */
+  
+  
+  items: Item[];
+
+  constructor(private homeService: HomeService) { }
+
+  ngOnInit() {
+    this.getItems();
+  }
+
+  getItems(): void {
+    this.homeService.getItems()
+    .subscribe(items => this.items = items);
+  }
+
+  add(item: Item): void {
+    this.homeService.addItem(item).subscribe(item => {
+      this.items.push(item);
+    });
+  }
+  
 
 }
