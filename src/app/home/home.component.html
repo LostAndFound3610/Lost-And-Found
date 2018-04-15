@@ -13,20 +13,21 @@
       <button type="login" class="btn btn-default">Login</button>
     </form>
 </div>
+-->
 
 <div>
-  <label>item name:
-    <input #itemName />
+  <label>item id:
+    <input #itemId />
+    <input #itemCate />
   </label>
-  <button (click)="add(itemName.value); itemName.value=''">
+  <button (click)="add(itemId.value, itemCate.value);">
     add
   </button>
 </div>
--->
+
 
 <ul class="items">
-  <li *ngFor="let item of items" [class.selected]="item === selectedItem">
+  <li *ngFor="let item of items">
     <span class="badge">{{item.id}}</span>{{item.category}}
   </li>
-  
 </ul>

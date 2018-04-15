@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Item } from './item';
 import { HomeService } from './home.service';
-import {Items} from './mock-items';
+import { Items } from './mock-items';
 
 @Component({
   selector: 'app-home',
@@ -25,23 +25,39 @@ export class HomeComponent implements OnInit {
   */
   
   
-  items: Item[];
+  items: Item[] = [];
+  push_item: Item;
+  selectedItem: Item;
 
-  constructor(private homeService: HomeService) { }
+  constructor(public homeService: HomeService) { }
 
   ngOnInit() {
-    this.getItems();
+    this.homeService.getItems().subscribe(items => {
+      this.items = items;
+    },
+      error => console.log(error)
+    );
   }
 
-  getItems(): void {
-    this.homeService.getItems()
-    .subscribe(items => this.items = items);
+  OnSelect(item: Item): void {
+    this.selectedItem = item;
   }
 
-  add(item: Item): void {
-    this.homeService.addItem(item).subscribe(item => {
+  add(item_id: number, item_cate: string): void {
+    let push_item = {
+      id: item_id,
+      category: item_cate,
+      type: 'xxx',
+      school: 'xxx',
+      building: 'xxx',
+      owned_by_user: null
+    }
+
+    this.homeService.addItem(push_item).subscribe(item => {
       this.items.push(item);
-    });
+    },
+      error => console.log(error)
+    );
   }
   
 

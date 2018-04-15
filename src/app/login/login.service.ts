@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { IUser } from '../user';
+import { User } from '../user';
 
 @Injectable()
 export class LoginService {
@@ -10,8 +10,8 @@ export class LoginService {
 
   constructor( private _http: HttpClient ) { }
 
-  getUsers(): Observable<IUser[]>{
-    return this._http.get<IUser[]>(this.userUrl);
+  getUsers(): Observable<User[]>{
+    return this._http.get<User[]>(this.userUrl);
   }
 
 }
