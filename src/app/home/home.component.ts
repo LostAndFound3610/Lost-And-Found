@@ -9,56 +9,101 @@ import { Items } from './mock-items';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  
-  /*
-  items = Items;
-  selectedItem: Item;
-
-  onSelect(item: Item): void {
-    this.selectedItem = item;
-  }
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-  */
-  
-  
+ 
   items: Item[] = [];
+  matched_items: Item[] = [];
   push_item: Item;
   selectedItem: Item;
+  message: string = '';
 
   constructor(public homeService: HomeService) { }
 
-  ngOnInit() {
+  getItems() {
     this.homeService.getItems().subscribe(items => {
       this.items = items;
+      //console.log(this.items);
     },
       error => console.log(error)
     );
+    
+  }
+
+  ngOnInit() {
+    this.message = '';
+    this.getItems();
   }
 
   OnSelect(item: Item): void {
     this.selectedItem = item;
   }
 
-  add(item_id: number, item_cate: string): void {
-    let push_item = {
-      id: item_id,
-      category: item_cate,
-      type: 'xxx',
-      school: 'xxx',
-      building: 'xxx',
-      owned_by_user: null
+  match(in_type: string, in_building: string) {
+    
+    //console.log(this.items[1].type);
+    let if_matched: boolean = false;
+    let i = 0;
+    while (i<=this.items.length) {
+      try{
+        let curr_type = this.items[i].type;
+        let curr_building = this.items[i].building;
+
+        if (curr_type == in_type && curr_building == in_building) {
+          this.matched_items.push(this.items[i])
+          console.log(this.matched_items)
+          if_matched = true
+        }
+
+        throw new Error('type or build don\'t exist yet');
+      }
+      catch(e){
+        console.log(e)
+      }
+
+      i++;
+
     }
 
-    this.homeService.addItem(push_item).subscribe(item => {
+    return if_matched
+  }
+
+  add_single_item(item: Item) {
+    this.homeService.addItem(item).subscribe(item => {
       this.items.push(item);
     },
       error => console.log(error)
     );
   }
+
+  add(item_type: string, item_cate: string, item_building: string): void {
+
+    this.matched_items = [];
+
+    let last_id = this.items[this.items.length-1].id
+
+    let push_item = {
+      id: last_id+1,
+      category: item_cate,
+      type: item_type,
+      school: null,
+      building: item_building,
+      owned_by_user: null
+    }
+
+    let if_matched = this.match(item_type, item_building);
+    console.log(if_matched);
+
+    if(!if_matched) {
+      this.add_single_item(push_item)
+      this.message = 'No matching items found, your item will be recorded';
+    }else{
+      this.message = 'Are you looking for the follwoing items?'
+    }
+
+    
+
+  }
+
+  
   
 
 }
