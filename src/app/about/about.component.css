@@ -1,0 +1,172 @@
+
+
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+@import url('https://fonts.googleapis.com/css?family=Dosis:400,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+
+body {
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  padding-top: 60px;
+}
+h2 {
+  padding-left: 400px;
+  font-size: 50px;
+  margin-bottom: 0px;
+  font-weight: 100;
+}
+p {
+  padding-left: 550px;
+  font-size: 18px;
+}
+.transition {
+  transition: .3s cubic-bezier(.3, 0, 0, 1.3)
+}
+.three .transition {
+  transition: .7s cubic-bezier(.3, 0, 0, 1.3)
+}
+.five .transition {
+  transition: .5s cubic-bezier(.3, 0, 0, 1.3)
+}
+
+  /* --------- FOUR --------- */ 
+  
+  
+  
+  
+  .four {
+    list-style: none;
+    padding: 60;
+    margin: 100px 0;
+  }
+  .four > li {
+    background: #FFFFFF;
+    border: 1px solid rgba(150,150,150,0.29);
+    -moz-box-shadow: 0px 0px 18px 0px rgba(103,85,85,0.39);
+    box-shadow: 0px 0px 18px 0px rgba(103,85,85,0.39);
+    width: 250px;
+    height: 350px;
+    display: inline-block;
+    margin: 0 20px;
+    text-align: center;
+  }
+  .four > li img {
+    margin-top: 40px;
+  }
+  .four > li:hover img {
+    margin-top: 30px;
+  }
+  .four > li:hover {
+    -moz-box-shadow: 0px 0px 5px 0px rgba(103,85,85,0.25);
+    box-shadow: 0px 0px 5px 0px rgba(103,85,85,0.25);
+  }
+  .four > li:hover span {
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    bottom: -400px;
+  }
+  .four > li:hover .wrapper > img {
+    display: none;
+  }
+  .four > li:hover h3 {
+    color: #2F7ABE;
+    margin-top: -70px;
+  }
+  .four > li .wrapper {
+    overflow: hidden;
+    position: absolute;
+    width: 250px;
+    height: 350px;
+  }
+  .four > li span {
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    height: 500px;
+    width: 500px;
+    background: #2F7ABE;
+    display: block;
+    position: absolute;
+    bottom: -300px;
+    left: -125px;
+  }
+  .four > li span img {
+    margin-top: 10px;
+    width: 50px;
+  }
+  .four > li span:hover {
+    background: #2F7ABE;
+  }
+  .four > li h3 {
+    margin-top: 40px;
+    color: rgba(255,255,255,1);
+  }
+  .four > li h3 em {
+    display: block;
+    font-style: normal;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  .four .social {
+    list-style: none;
+    text-align: center;
+    margin: 10px 0 0 0;
+    padding: 10px;
+  }
+  .four .social li {
+    opacity: 0;
+    display: inline-block;
+    padding: 5px;
+  }
+  .four > li:hover .social li {
+    opacity: 0.5;
+  }
+  .four .social li a {
+    cursor: pointer;
+    display: block;
+  }
+  .four .social li a:hover {
+    opacity: 0.5;
+  }
+  .four .social li img {
+    width: 24px;
+  }
+
+   @-webkit-keyframes arrow {
+   0% {
+  background-position: center top;
+  }
+   50% {
+  background-position: center 10px;
+  }
+   100% {
+  background-position: center top;
+  }
+  }
+   @-moz-keyframes arrow {
+   0% {
+  background-position: center top;
+  }
+   50% {
+  background-position: center 10px;
+  }
+   100% {
+  background-position: center top;
+  }
+  }
+   @keyframes arrow {
+   0% {
+  background-position: center top;
+  }
+   50% {
+  background-position: center 10px;
+  }
+   100% {
+  background-position: center top;
+  }
+  }
+  
+  
