@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Item } from './item';
 import { HomeService } from './home.service';
-import { Items } from './mock-items';
+//import { Items } from './mock-items';
 
 @Component({
   selector: 'app-home',

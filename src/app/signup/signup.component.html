@@ -3,24 +3,29 @@
     <form>
         <div class="form-group">
             <label for="title">First Name</label>
-            <input type="text" class="form-control" id="title" required>
+            <input #formFname type="text" class="form-control" id="title" required>
           </div>
         <div class="form-group">
             <label for="title">Last Name</label>
-            <input type="text" class="form-control" id="title" required>
+            <input #formLname type="text" class="form-control" id="title" required>
           </div>
           <div class="form-group">
-              <label for="title">School</label>
-              <input type="text" class="form-control" id="title" required>
+              <label for="title">Phone Number</label>
+              <input #formPhone type="text" class="form-control" id="title" required>
             </div>
       <div class="form-group">
-        <label for="title">Email</label>
-        <input type="text" class="form-control" id="title" required>
+        <label>Email</label>
+        <input #formEmail type="text" class="form-control" id="title" required>
       </div>
       <div class="form-group">
-        <label for="author">Password</label>
-        <input type="text" class="form-control" id="author" required>
+        <label>Password</label>
+        <input #formPass type="text" class="form-control" id="author" required>
       </div>
-      <button type="login" class="btn btn-default">Login</button>
+      <button (click) = 'add(formFname.value, formLname.value, formPhone.value, formEmail.value, formPass.value);'
+        type="login" class="btn btn-default">Sign Up</button>
+
+      <div class="form-group">
+        {{ message }}
+      </div>
     </form>
 </div>

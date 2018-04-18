@@ -3,12 +3,13 @@
     <form>
       <div class="form-group">
         <label for="title">Email</label>
-        <input type="text" class="form-control" id="title" required>
+        <input #email_ type="text" class="form-control" id="title" required>
       </div>
       <div class="form-group">
         <label for="author">Password</label>
-        <input type="text" class="form-control" id="author" required>
+        <input #pass_ type="text" class="form-control" id="author" required>
       </div>
-      <button type="login" class="btn btn-default">Login</button>
+      <button (click)="login_process(email_.value, pass_.value)"
+        type="login" class="btn btn-default">Login</button>
     </form>
 </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Item } from '../home/item';
 import { HomeService } from '../home/home.service';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-browse',
@@ -10,10 +11,15 @@ import { HomeService } from '../home/home.service';
 export class BrowseComponent implements OnInit {
 
   items: Item[] = [];
+  shown_items: Item[] = [];
   message: string = '';
+  useremail: string = '';
 
-  constructor(public homeService: HomeService) { }
+  //login_c: LoginComponent;
 
+  constructor( private homeService: HomeService) { }
+
+  
   getItems() {
     this.homeService.getItems().subscribe(items => {
       this.items = items;
@@ -22,9 +28,16 @@ export class BrowseComponent implements OnInit {
     );
     
   }
+  
+  
+
+
 
   ngOnInit() {
     this.getItems();
+
+    //this.useremail = this.log_c.login_email;
+    //console.log(this.log_c.login_email);
   }
 
 }
