@@ -1,17 +1,71 @@
 
-
 <div class="container">
-  <h1>Lost and Found</h1>
+  
+  
+  <div id="wrapperHeader">
+    <div id="header">
+        <p style="text-align:center;"><img typeof="foaf:Image" src="https://surplus.psu.edu/sites/surplus/files/styles/1200x600/public/lost-found.jpg?itok=iWKg0wZ7" width="1125" height="500" alt="Lost and Found"></p>
+    </div> 
+  </div>
+  
+
+
     <form>
       <div class="form-group">
-        <label for="title">Category</label>
-        <input type="text" class="form-control" id="title" required>
+        <label for="title">What is the item the would you like to post or find?</label>
+        <input #itemType type="text" class="form-control" id="title" size="60" required/>
       </div>
       <div class="form-group">
-        <label for="author">Type</label>
-        <input type="text" class="form-control" id="author" required>
+        <label for="title">Briefly describe it</label>
+        <input #itemCategory type="text" class="form-control" id="title" size="60" required/>
       </div>
-      <button type="login" class="btn btn-default">Login</button>
+      <div class="form-group">
+        <label for="title">Where did you find it?</label>
+        <input #itemBuilding type="text" class="form-control" id="title" size="60" required/>
+      </div>
+      <button (click)="add(itemType.value, itemCategory.value, itemBuilding.value);"
+        type="login" class="btn btn-default">Go</button>
     </form>
 </div>
-  
+
+<div class="container">
+  <h2>{{ message }}</h2>
+  <ul class="items">
+    <li *ngFor="let item of matched_items">
+      
+      <div class="form-group">
+        <p>Item type: {{item.type}}</p>
+        <p>Item description: {{item.category}}</p>
+        <p>Place found: {{item.building}}</p>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<!--
+<p>existing items</p>
+<ul class="items">
+  <li *ngFor="let item of items">
+    <span class="badge">{{item.id}}</span>{{item.category}}
+  </li>
+</ul>
+
+<span>{{item.id}}</span>{{item.category}}
+
+
+
+
+
+
+
+<div>
+  <label>item id:
+    <input #itemId />
+    <input #itemCate />
+  </label>
+  <button (click)="add(itemId.value, itemCate.value);">
+    add
+  </button>
+</div>
+
+-->
