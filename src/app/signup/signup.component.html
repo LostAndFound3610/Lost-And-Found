@@ -1,3 +1,4 @@
+
 <body class="align">
 
     <div class="grid">
@@ -6,7 +7,22 @@
   
         <div class="form__field">
           <label for="login__username"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#user"></use></svg><span class="hidden">Username</span></label>
-          <input id="login__username" type="text" name="username" class="form__input" placeholder="Username" required>
+          <input #formFname id="login__username" type="text" name="username" class="form__input" placeholder="First Name" required>
+        </div>
+        
+        <div class="form__field">
+          <label for="login__username"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#user"></use></svg><span class="hidden">Username</span></label>
+          <input #formLname id="login__username" type="text" name="username" class="form__input" placeholder="Last Name" required>
+        </div>
+        
+        <div class="form__field">
+          <label for="login__username"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#user"></use></svg><span class="hidden">Username</span></label>
+          <input #formPhone id="login__username" type="text" name="username" class="form__input" placeholder="Phone Number" required>
+        </div>
+        
+        <div class="form__field">
+          <label for="login__username"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#user"></use></svg><span class="hidden">Username</span></label>
+          <input #formEmail id="login__username" type="text" name="username" class="form__input" placeholder="Email" required>
         </div>
   
         <div class="form__field">
@@ -15,12 +31,13 @@
         </div>
   
         <div class="form__field">
-          <input type="submit" value="Sign In">
+          <button (click) = 'add(formFname.value, formLname.value, formPhone.value, formEmail.value, formPass.value);'
+        type="login" class="btn btn-default">Sign Up</button>
         </div>
   
       </form>
   
-      <p class="text--center">Not a member? <a href="#">Sign up now</a> <svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#arrow-right"></use></svg></p>
+      <p class="text--center">Not a member?  <svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#arrow-right"></use></svg></p>
   
     </div>
   

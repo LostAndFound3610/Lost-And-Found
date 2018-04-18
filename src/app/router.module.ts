@@ -20,6 +20,7 @@ const routes: Routes =[
   { path: '**', component: NotFoundComponent }
 ];
 
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
