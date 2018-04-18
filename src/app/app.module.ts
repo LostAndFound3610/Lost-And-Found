@@ -11,7 +11,12 @@ import { AppRouterModule } from './router.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowseComponent } from './browse/browse.component';
+
 import { SignupService } from './signup/signup.service';
+
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+
 
 const appRoutes = [
   {path: 'login', component: LoginComponent},
@@ -26,7 +31,9 @@ const appRoutes = [
     HomeComponent,
     SignupComponent,
     NotFoundComponent,
-    BrowseComponent
+    BrowseComponent,
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
